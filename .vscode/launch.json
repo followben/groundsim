@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "backend: test",
+      "name": "api: test",
       "type": "python",
       "request": "launch",
       "module": "pytest",
@@ -13,12 +13,12 @@
       "python": "${workspaceFolder}/venv/bin/python3"
     },
     {
-      "name": "backend: fastapi",
+      "name": "api: fastapi",
       "type": "python",
       "request": "launch",
       "module": "uvicorn",
       "cwd": "${workspaceFolder}/backend",
-      "args": ["api.main:app", "--no-access-log"],
+      "args": ["main:app", "--no-access-log"],
       "jinja": true,
       "justMyCode": true
     }

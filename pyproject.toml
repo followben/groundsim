@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+norecursedirs = [
+  ".vscode",
+  "venv",
+]
+testpaths = [
+  "backend",
+]
+
+[tool.pyright]
+exclude = [
+  "**/__pycache__",
+]
+include = ["backend"]
+reportMissingImports = true
+reportMissingTypeStubs = false
