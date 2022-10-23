@@ -1,0 +1,6 @@
+-r backend/api/requirements.txt
+black
+flake8
+pytest
+pytest-asyncio
+uvicorn

@@ -1,0 +1,25 @@
+{
+  "python.analysis.extraPaths": ["backend"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["backend"],
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=120"],
+  "python.linting.mypyEnabled": true,
+  "python.formatting.provider": "black",
+  "[python]": { "editor.formatOnSaveMode": "file" },
+  "files.exclude": {
+    "**/include/": true,
+    "**/__pycache__/": true,
+    "**/.pytest_cache/": true,
+    "**/.mypy_cache/": true
+  },
+  "git.rebaseWhenSync": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}
