@@ -19,5 +19,6 @@ COPY --from=build /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 COPY main.py .
+COPY tracking.json .
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]

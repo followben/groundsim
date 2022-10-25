@@ -1,0 +1,765 @@
+{
+  "0": [
+    { "type": "el", "value": 5.0 },
+    { "type": "az", "value": 262.31 },
+    { "type": "power", "value": 41.5 }
+  ],
+  "3": [
+    { "type": "el", "value": 5.15 },
+    { "type": "az", "value": 262.79 }
+  ],
+  "5": [
+    { "type": "el", "value": 5.24 },
+    { "type": "az", "value": 263.13 }
+  ],
+  "6": [
+    { "type": "el", "value": 5.29 },
+    { "type": "az", "value": 263.3 }
+  ],
+  "8": [
+    { "type": "el", "value": 5.37 },
+    { "type": "az", "value": 263.6 }
+  ],
+  "9": [
+    { "type": "el", "value": 5.41 },
+    { "type": "az", "value": 263.77 }
+  ],
+  "11": [
+    { "type": "el", "value": 5.51 },
+    { "type": "az", "value": 264.1 },
+    { "type": "power", "value": 41.4 }
+  ],
+  "12": [
+    { "type": "el", "value": 5.55 },
+    { "type": "az", "value": 264.27 }
+  ],
+  "14": [
+    { "type": "el", "value": 5.64 },
+    { "type": "az", "value": 264.6 }
+  ],
+  "17": [
+    { "type": "el", "value": 5.79 },
+    { "type": "az", "value": 265.13 }
+  ],
+  "18": [
+    { "type": "el", "value": 5.83 },
+    { "type": "az", "value": 265.31 }
+  ],
+  "20": [
+    { "type": "el", "value": 5.91 },
+    { "type": "az", "value": 265.67 }
+  ],
+  "22": [
+    { "type": "el", "value": 6.01 },
+    { "type": "az", "value": 266.02 }
+  ],
+  "23": [
+    { "type": "el", "value": 6.07 },
+    { "type": "az", "value": 266.17 }
+  ],
+  "25": [
+    { "type": "el", "value": 6.15 },
+    { "type": "az", "value": 266.53 }
+  ],
+  "26": [
+    { "type": "el", "value": 6.19 },
+    { "type": "az", "value": 266.71 }
+  ],
+  "28": [
+    { "type": "el", "value": 6.29 },
+    { "type": "az", "value": 267.05 }
+  ],
+  "31": [
+    { "type": "el", "value": 6.41 },
+    { "type": "az", "value": 267.6 }
+  ],
+  "32": [
+    { "type": "el", "value": 6.45 },
+    { "type": "az", "value": 267.79 }
+  ],
+  "34": [
+    { "type": "el", "value": 6.55 },
+    { "type": "az", "value": 268.14 }
+  ],
+  "35": [
+    { "type": "el", "value": 6.59 },
+    { "type": "az", "value": 268.33 }
+  ],
+  "37": [
+    { "type": "el", "value": 6.68 },
+    { "type": "az", "value": 268.69 }
+  ],
+  "38": [
+    { "type": "el", "value": 6.72 },
+    { "type": "az", "value": 268.88 }
+  ],
+  "41": [
+    { "type": "el", "value": 6.85 },
+    { "type": "az", "value": 269.42 }
+  ],
+  "42": [
+    { "type": "el", "value": 6.9 },
+    { "type": "az", "value": 269.59 }
+  ],
+  "43": [{ "type": "power", "value": 41.2 }],
+  "44": [
+    { "type": "el", "value": 6.98 },
+    { "type": "az", "value": 269.95 }
+  ],
+  "46": [
+    { "type": "el", "value": 7.07 },
+    { "type": "az", "value": 270.35 }
+  ],
+  "47": [
+    { "type": "el", "value": 7.12 },
+    { "type": "az", "value": 270.54 }
+  ],
+  "49": [
+    { "type": "el", "value": 7.18 },
+    { "type": "az", "value": 270.89 }
+  ],
+  "50": [
+    { "type": "el", "value": 7.23 },
+    { "type": "az", "value": 271.07 }
+  ],
+  "52": [
+    { "type": "el", "value": 7.31 },
+    { "type": "az", "value": 271.46 }
+  ],
+  "55": [
+    { "type": "el", "value": 7.43 },
+    { "type": "az", "value": 272.03 }
+  ],
+  "56": [
+    { "type": "el", "value": 7.47 },
+    { "type": "az", "value": 272.23 }
+  ],
+  "57": [
+    { "type": "el", "value": 7.52 },
+    { "type": "az", "value": 272.42 }
+  ],
+  "59": [
+    { "type": "el", "value": 7.6 },
+    { "type": "az", "value": 272.82 }
+  ],
+  "61": [
+    { "type": "el", "value": 7.68 },
+    { "type": "az", "value": 273.23 }
+  ],
+  "63": [
+    { "type": "el", "value": 7.76 },
+    { "type": "az", "value": 273.61 }
+  ],
+  "65": [
+    { "type": "el", "value": 7.85 },
+    { "type": "az", "value": 274.02 }
+  ],
+  "67": [
+    { "type": "el", "value": 7.92 },
+    { "type": "az", "value": 274.43 }
+  ],
+  "69": [
+    { "type": "el", "value": 8.0 },
+    { "type": "az", "value": 274.82 }
+  ],
+  "70": [
+    { "type": "el", "value": 8.04 },
+    { "type": "az", "value": 275.03 }
+  ],
+  "71": [
+    { "type": "el", "value": 8.08 },
+    { "type": "az", "value": 275.23 }
+  ],
+  "73": [
+    { "type": "el", "value": 8.15 },
+    { "type": "az", "value": 275.65 }
+  ],
+  "75": [
+    { "type": "el", "value": 8.23 },
+    { "type": "az", "value": 276.07 }
+  ],
+  "77": [
+    { "type": "el", "value": 8.3 },
+    { "type": "az", "value": 276.49 }
+  ],
+  "78": [
+    { "type": "el", "value": 8.34 },
+    { "type": "az", "value": 276.7 }
+  ],
+  "80": [
+    { "type": "el", "value": 8.41 },
+    { "type": "az", "value": 277.13 }
+  ],
+  "83": [
+    { "type": "el", "value": 8.52 },
+    { "type": "az", "value": 277.74 }
+  ],
+  "84": [
+    { "type": "el", "value": 8.56 },
+    { "type": "az", "value": 277.96 }
+  ],
+  "85": [
+    { "type": "el", "value": 8.59 },
+    { "type": "az", "value": 278.17 }
+  ],
+  "87": [
+    { "type": "el", "value": 8.66 },
+    { "type": "az", "value": 278.6 }
+  ],
+  "89": [
+    { "type": "el", "value": 8.72 },
+    { "type": "az", "value": 279.0 }
+  ],
+  "92": [
+    { "type": "el", "value": 8.82 },
+    { "type": "az", "value": 279.66 }
+  ],
+  "94": [
+    { "type": "el", "value": 8.89 },
+    { "type": "az", "value": 280.11 }
+  ],
+  "95": [
+    { "type": "el", "value": 8.92 },
+    { "type": "az", "value": 280.33 }
+  ],
+  "96": [
+    { "type": "el", "value": 8.97 },
+    { "type": "az", "value": 280.56 }
+  ],
+  "98": [
+    { "type": "el", "value": 9.02 },
+    { "type": "az", "value": 281.01 }
+  ],
+  "101": [
+    { "type": "el", "value": 9.11 },
+    { "type": "az", "value": 281.67 }
+  ],
+  "103": [
+    { "type": "el", "value": 9.17 },
+    { "type": "az", "value": 282.12 }
+  ],
+  "104": [
+    { "type": "el", "value": 9.2 },
+    { "type": "az", "value": 282.32 }
+  ],
+  "106": [
+    { "type": "el", "value": 9.26 },
+    { "type": "az", "value": 282.79 }
+  ],
+  "108": [
+    { "type": "el", "value": 9.32 },
+    { "type": "az", "value": 283.25 }
+  ],
+  "111": [
+    { "type": "el", "value": 9.41 },
+    { "type": "az", "value": 283.95 }
+  ],
+  "112": [
+    { "type": "el", "value": 9.43 },
+    { "type": "az", "value": 284.18 }
+  ],
+  "114": [
+    { "type": "el", "value": 9.48 },
+    { "type": "az", "value": 284.65 }
+  ],
+  "116": [
+    { "type": "el", "value": 9.54 },
+    { "type": "az", "value": 285.12 }
+  ],
+  "119": [
+    { "type": "el", "value": 9.63 },
+    { "type": "az", "value": 285.81 }
+  ],
+  "121": [
+    { "type": "el", "value": 9.66 },
+    { "type": "az", "value": 286.27 }
+  ],
+  "122": [
+    { "type": "el", "value": 9.69 },
+    { "type": "az", "value": 286.51 }
+  ],
+  "124": [
+    { "type": "el", "value": 9.73 },
+    { "type": "az", "value": 286.97 }
+  ],
+  "126": [
+    { "type": "el", "value": 9.78 },
+    { "type": "az", "value": 287.47 }
+  ],
+  "128": [
+    { "type": "el", "value": 9.83 },
+    { "type": "az", "value": 287.95 }
+  ],
+  "129": [{ "type": "el", "value": 9.84 }],
+  "130": [{ "type": "az", "value": 288.39 }],
+  "131": [{ "type": "az", "value": 288.63 }],
+  "132": [{ "type": "el", "value": 9.91 }],
+  "133": [{ "type": "az", "value": 289.11 }],
+  "135": [
+    { "type": "el", "value": 9.97 },
+    { "type": "az", "value": 289.6 }
+  ],
+  "136": [
+    { "type": "el", "value": 9.98 },
+    { "type": "az", "value": 289.84 }
+  ],
+  "139": [
+    { "type": "el", "value": 10.04 },
+    { "type": "az", "value": 290.55 }
+  ],
+  "140": [
+    { "type": "el", "value": 10.06 },
+    { "type": "az", "value": 290.81 }
+  ],
+  "142": [
+    { "type": "el", "value": 10.09 },
+    { "type": "az", "value": 291.3 }
+  ],
+  "143": [
+    { "type": "el", "value": 10.11 },
+    { "type": "az", "value": 291.52 }
+  ],
+  "145": [
+    { "type": "el", "value": 10.14 },
+    { "type": "az", "value": 292.0 }
+  ],
+  "146": [
+    { "type": "el", "value": 10.15 },
+    { "type": "az", "value": 292.26 }
+  ],
+  "149": [
+    { "type": "el", "value": 10.2 },
+    { "type": "az", "value": 293.0 }
+  ],
+  "150": [
+    { "type": "el", "value": 10.22 },
+    { "type": "az", "value": 293.26 }
+  ],
+  "152": [
+    { "type": "el", "value": 10.24 },
+    { "type": "az", "value": 293.76 }
+  ],
+  "154": [
+    { "type": "el", "value": 10.26 },
+    { "type": "az", "value": 294.27 }
+  ],
+  "156": [
+    { "type": "el", "value": 10.28 },
+    { "type": "az", "value": 294.77 }
+  ],
+  "157": [
+    { "type": "el", "value": 10.31 },
+    { "type": "az", "value": 295.02 }
+  ],
+  "159": [{ "type": "az", "value": 295.54 }],
+  "160": [
+    { "type": "el", "value": 10.32 },
+    { "type": "az", "value": 295.78 }
+  ],
+  "162": [
+    { "type": "el", "value": 10.34 },
+    { "type": "az", "value": 296.29 }
+  ],
+  "164": [
+    { "type": "el", "value": 10.35 },
+    { "type": "az", "value": 296.77 }
+  ],
+  "166": [
+    { "type": "el", "value": 10.38 },
+    { "type": "az", "value": 297.27 }
+  ],
+  "168": [{ "type": "az", "value": 297.77 }],
+  "169": [{ "type": "az", "value": 298.04 }],
+  "171": [
+    { "type": "el", "value": 10.41 },
+    { "type": "az", "value": 298.49 }
+  ],
+  "172": [{ "type": "az", "value": 298.74 }],
+  "174": [{ "type": "az", "value": 299.24 }],
+  "177": [{ "type": "az", "value": 300.0 }],
+  "178": [{ "type": "az", "value": 300.24 }],
+  "180": [{ "type": "az", "value": 300.75 }],
+  "181": [{ "type": "az", "value": 301.0 }],
+  "183": [{ "type": "az", "value": 301.48 }],
+  "184": [{ "type": "az", "value": 301.74 }],
+  "187": [{ "type": "az", "value": 302.5 }],
+  "189": [{ "type": "az", "value": 303.0 }],
+  "190": [{ "type": "az", "value": 303.25 }],
+  "192": [{ "type": "az", "value": 303.76 }],
+  "193": [{ "type": "az", "value": 304.01 }],
+  "196": [
+    { "type": "el", "value": 10.38 },
+    { "type": "az", "value": 304.77 }
+  ],
+  "197": [
+    { "type": "el", "value": 10.37 },
+    { "type": "az", "value": 305.02 }
+  ],
+  "198": [
+    { "type": "el", "value": 10.36 },
+    { "type": "az", "value": 305.28 }
+  ],
+  "201": [
+    { "type": "el", "value": 10.34 },
+    { "type": "az", "value": 306.03 }
+  ],
+  "203": [
+    { "type": "el", "value": 10.32 },
+    { "type": "az", "value": 306.52 }
+  ],
+  "205": [
+    { "type": "el", "value": 10.3 },
+    { "type": "az", "value": 307.02 }
+  ],
+  "206": [{ "type": "az", "value": 307.26 }],
+  "208": [
+    { "type": "el", "value": 10.26 },
+    { "type": "az", "value": 307.77 }
+  ],
+  "209": [
+    { "type": "el", "value": 10.25 },
+    { "type": "az", "value": 308.02 }
+  ],
+  "211": [
+    { "type": "el", "value": 10.23 },
+    { "type": "az", "value": 308.48 }
+  ],
+  "212": [
+    { "type": "el", "value": 10.21 },
+    { "type": "az", "value": 308.74 }
+  ],
+  "215": [
+    { "type": "el", "value": 10.17 },
+    { "type": "az", "value": 309.49 }
+  ],
+  "216": [
+    { "type": "el", "value": 10.16 },
+    { "type": "az", "value": 309.75 }
+  ],
+  "218": [
+    { "type": "el", "value": 10.13 },
+    { "type": "az", "value": 310.25 }
+  ],
+  "219": [
+    { "type": "el", "value": 10.11 },
+    { "type": "az", "value": 310.5 }
+  ],
+  "220": [
+    { "type": "el", "value": 10.1 },
+    { "type": "az", "value": 310.76 }
+  ],
+  "222": [{ "type": "az", "value": 311.24 }],
+  "223": [{ "type": "el", "value": 10.04 }],
+  "224": [
+    { "type": "el", "value": 10.02 },
+    { "type": "az", "value": 311.7 }
+  ],
+  "226": [
+    { "type": "el", "value": 9.98 },
+    { "type": "az", "value": 312.19 }
+  ],
+  "227": [
+    { "type": "el", "value": 9.97 },
+    { "type": "az", "value": 312.43 }
+  ],
+  "229": [
+    { "type": "el", "value": 9.92 },
+    { "type": "az", "value": 312.91 }
+  ],
+  "230": [
+    { "type": "el", "value": 9.9 },
+    { "type": "az", "value": 313.15 }
+  ],
+  "231": [
+    { "type": "el", "value": 9.88 },
+    { "type": "az", "value": 313.39 }
+  ],
+  "234": [
+    { "type": "el", "value": 9.81 },
+    { "type": "az", "value": 314.12 }
+  ],
+  "236": [
+    { "type": "el", "value": 9.77 },
+    { "type": "az", "value": 314.6 }
+  ],
+  "237": [
+    { "type": "el", "value": 9.75 },
+    { "type": "az", "value": 314.84 }
+  ],
+  "239": [
+    { "type": "el", "value": 9.7 },
+    { "type": "az", "value": 315.34 }
+  ],
+  "240": [
+    { "type": "el", "value": 9.68 },
+    { "type": "az", "value": 315.58 }
+  ],
+  "241": [
+    { "type": "el", "value": 9.65 },
+    { "type": "az", "value": 315.82 }
+  ],
+  "244": [
+    { "type": "el", "value": 9.57 },
+    { "type": "az", "value": 316.53 }
+  ],
+  "245": [
+    { "type": "el", "value": 9.55 },
+    { "type": "az", "value": 316.77 }
+  ],
+  "247": [
+    { "type": "el", "value": 9.5 },
+    { "type": "az", "value": 317.23 }
+  ],
+  "248": [
+    { "type": "el", "value": 9.46 },
+    { "type": "az", "value": 317.46 }
+  ],
+  "250": [
+    { "type": "el", "value": 9.42 },
+    { "type": "az", "value": 317.92 }
+  ],
+  "251": [
+    { "type": "el", "value": 9.39 },
+    { "type": "az", "value": 318.11 }
+  ],
+  "253": [
+    { "type": "el", "value": 9.33 },
+    { "type": "az", "value": 318.58 }
+  ],
+  "256": [
+    { "type": "el", "value": 9.24 },
+    { "type": "az", "value": 319.27 }
+  ],
+  "258": [
+    { "type": "el", "value": 9.19 },
+    { "type": "az", "value": 319.73 }
+  ],
+  "259": [
+    { "type": "el", "value": 9.15 },
+    { "type": "az", "value": 319.97 }
+  ],
+  "261": [
+    { "type": "el", "value": 9.09 },
+    { "type": "az", "value": 320.44 }
+  ],
+  "263": [
+    { "type": "el", "value": 9.02 },
+    { "type": "az", "value": 320.9 }
+  ],
+  "265": [
+    { "type": "el", "value": 8.97 },
+    { "type": "az", "value": 321.32 }
+  ],
+  "266": [
+    { "type": "el", "value": 8.93 },
+    { "type": "az", "value": 321.54 }
+  ],
+  "268": [
+    { "type": "el", "value": 8.87 },
+    { "type": "az", "value": 321.99 }
+  ],
+  "269": [{ "type": "az", "value": 322.21 }],
+  "270": [{ "type": "el", "value": 8.8 }],
+  "272": [
+    { "type": "el", "value": 8.74 },
+    { "type": "az", "value": 322.88 }
+  ],
+  "274": [
+    { "type": "el", "value": 8.66 },
+    { "type": "az", "value": 323.33 }
+  ],
+  "275": [
+    { "type": "el", "value": 8.63 },
+    { "type": "az", "value": 323.55 }
+  ],
+  "276": [
+    { "type": "el", "value": 8.59 },
+    { "type": "az", "value": 323.77 }
+  ],
+  "278": [
+    { "type": "el", "value": 8.53 },
+    { "type": "az", "value": 324.22 }
+  ],
+  "279": [
+    { "type": "el", "value": 8.48 },
+    { "type": "az", "value": 324.42 }
+  ],
+  "281": [{ "type": "az", "value": 324.85 }],
+  "282": [{ "type": "el", "value": 8.37 }],
+  "284": [
+    { "type": "el", "value": 8.3 },
+    { "type": "az", "value": 325.47 }
+  ],
+  "286": [
+    { "type": "el", "value": 8.22 },
+    { "type": "az", "value": 325.89 }
+  ],
+  "287": [
+    { "type": "el", "value": 8.19 },
+    { "type": "az", "value": 326.11 }
+  ],
+  "288": [
+    { "type": "el", "value": 8.14 },
+    { "type": "az", "value": 326.33 }
+  ],
+  "290": [
+    { "type": "el", "value": 8.06 },
+    { "type": "az", "value": 326.74 }
+  ],
+  "292": [
+    { "type": "el", "value": 7.99 },
+    { "type": "az", "value": 327.13 }
+  ],
+  "295": [
+    { "type": "el", "value": 7.88 },
+    { "type": "az", "value": 327.75 }
+  ],
+  "296": [
+    { "type": "el", "value": 7.83 },
+    { "type": "az", "value": 327.95 }
+  ],
+  "297": [
+    { "type": "el", "value": 7.8 },
+    { "type": "az", "value": 328.15 }
+  ],
+  "300": [
+    { "type": "el", "value": 7.67 },
+    { "type": "az", "value": 328.76 }
+  ],
+  "302": [
+    { "type": "el", "value": 7.59 },
+    { "type": "az", "value": 329.16 }
+  ],
+  "303": [
+    { "type": "el", "value": 7.55 },
+    { "type": "az", "value": 329.37 }
+  ],
+  "305": [
+    { "type": "el", "value": 7.47 },
+    { "type": "az", "value": 329.75 }
+  ],
+  "306": [
+    { "type": "el", "value": 7.43 },
+    { "type": "az", "value": 329.95 }
+  ],
+  "308": [
+    { "type": "el", "value": 7.34 },
+    { "type": "az", "value": 330.36 }
+  ],
+  "310": [
+    { "type": "el", "value": 7.26 },
+    { "type": "az", "value": 330.75 }
+  ],
+  "311": [{ "type": "az", "value": 330.94 }],
+  "312": [{ "type": "el", "value": 7.18 }],
+  "313": [{ "type": "az", "value": 331.32 }],
+  "314": [{ "type": "el", "value": 7.09 }],
+  "316": [
+    { "type": "el", "value": 6.99 },
+    { "type": "az", "value": 331.9 }
+  ],
+  "318": [
+    { "type": "el", "value": 6.91 },
+    { "type": "az", "value": 332.28 }
+  ],
+  "320": [
+    { "type": "el", "value": 6.82 },
+    { "type": "az", "value": 332.66 }
+  ],
+  "321": [
+    { "type": "el", "value": 6.78 },
+    { "type": "az", "value": 332.86 }
+  ],
+  "323": [
+    { "type": "el", "value": 6.69 },
+    { "type": "az", "value": 333.24 }
+  ],
+  "324": [
+    { "type": "el", "value": 6.65 },
+    { "type": "az", "value": 333.4 }
+  ],
+  "326": [
+    { "type": "el", "value": 6.56 },
+    { "type": "az", "value": 333.77 }
+  ],
+  "327": [
+    { "type": "el", "value": 6.52 },
+    { "type": "az", "value": 333.95 }
+  ],
+  "330": [
+    { "type": "el", "value": 6.37 },
+    { "type": "az", "value": 334.5 }
+  ],
+  "331": [
+    { "type": "el", "value": 6.33 },
+    { "type": "az", "value": 334.67 }
+  ],
+  "333": [
+    { "type": "el", "value": 6.25 },
+    { "type": "az", "value": 335.0 }
+  ],
+  "334": [
+    { "type": "el", "value": 6.21 },
+    { "type": "az", "value": 335.19 }
+  ],
+  "336": [
+    { "type": "el", "value": 6.11 },
+    { "type": "az", "value": 335.54 }
+  ],
+  "337": [
+    { "type": "el", "value": 6.08 },
+    { "type": "az", "value": 335.73 }
+  ],
+  "340": [
+    { "type": "el", "value": 5.92 },
+    { "type": "az", "value": 336.25 }
+  ],
+  "341": [
+    { "type": "el", "value": 5.88 },
+    { "type": "az", "value": 336.42 }
+  ],
+  "343": [
+    { "type": "el", "value": 5.79 },
+    { "type": "az", "value": 336.77 }
+  ],
+  "344": [
+    { "type": "el", "value": 5.74 },
+    { "type": "az", "value": 336.93 }
+  ],
+  "345": [
+    { "type": "el", "value": 5.7 },
+    { "type": "az", "value": 337.09 }
+  ],
+  "348": [
+    { "type": "el", "value": 5.56 },
+    { "type": "az", "value": 337.61 }
+  ],
+  "349": [
+    { "type": "el", "value": 5.52 },
+    { "type": "az", "value": 337.78 }
+  ],
+  "351": [
+    { "type": "el", "value": 5.41 },
+    { "type": "az", "value": 338.12 }
+  ],
+  "352": [
+    { "type": "el", "value": 5.37 },
+    { "type": "az", "value": 338.3 }
+  ],
+  "354": [
+    { "type": "el", "value": 5.27 },
+    { "type": "az", "value": 338.63 }
+  ],
+  "355": [
+    { "type": "el", "value": 5.23 },
+    { "type": "az", "value": 338.78 }
+  ],
+  "357": [
+    { "type": "el", "value": 5.13 },
+    { "type": "az", "value": 339.1 }
+  ],
+  "359": [
+    { "type": "el", "value": 5.04 },
+    { "type": "az", "value": 339.43 }
+  ]
+}

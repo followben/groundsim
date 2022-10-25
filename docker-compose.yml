@@ -18,10 +18,10 @@ services:
     build: ./backend
     ports:
       - 8080:80
+      - 5678:5678
     volumes:
       - ./backend:/app
-    command: >
-      sh -c "uvicorn main:app --host 0.0.0.0 --port 80 --reload --reload-dir /app"
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn main:app --host 0.0.0.0 --port 80 --reload  --reload-dir /app"]
     # environment:
     #   - DB_NAME=postgres
     #   - DB_USER=postgres
