@@ -1,4 +1,5 @@
+broadcaster
 fastapi
-uvicorn[standard]
-strawberry-graphql[fastapi]
 pydantic
+strawberry-graphql[fastapi]
+uvicorn[standard]
