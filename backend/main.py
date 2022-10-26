@@ -1,6 +1,6 @@
 import asyncio
 import json
-from typing import Literal, Mapping, Optional
+from typing import AsyncGenerator, Literal, Mapping, Optional
 
 import strawberry
 from fastapi import FastAPI
@@ -30,10 +30,19 @@ class TrackingPoints(BaseModel):
 class Query:
     @strawberry.field
     def hello(self) -> str:
-        return "Hello World"
+        return "bob"
 
 
-schema = strawberry.Schema(Query)
+@strawberry.type
+class Subscription:
+    @strawberry.subscription
+    async def count(self, target: int = 100) -> AsyncGenerator[int, None]:
+        for i in range(target):
+            yield i
+            await asyncio.sleep(0.5)
+
+
+schema = strawberry.Schema(query=Query, subscription=Subscription)
 
 graphql_app = GraphQLRouter(schema)
 
@@ -75,5 +84,5 @@ async def app_startup():
 
 @app.get("/")
 def root():
-    result = sim.value.dict()
+    result = sim.value.dict() if sim.value else None
     return result

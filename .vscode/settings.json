@@ -8,6 +8,8 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic",
   "[python]": { "editor.formatOnSaveMode": "file" },
   "files.exclude": {
     "**/include/": true,
