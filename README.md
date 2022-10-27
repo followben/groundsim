@@ -1,34 +1,40 @@
-Quick start
+# GS Simulator
 
-Ensure docker is running & you have docker-compose
+## Overview
 
-docker compose up
+This app simulates groundstation telemetry that might be typically received during a satellite overpass.
 
-TODO:
+It employs:
 
+- modern python (3.10) incl FastAPI, Pydantic and Strawberry for GraphQL and HTTP apis
+- docker for local development and cloud deployment
+
+A few highlights:
+
+- structured logging, unit and integration testing
+- (choice of base image)[https://pythonspeed.com/articles/base-image-python-docker-images/] and use of multistage build and venv to slim python
+
+If this were real I'd:
+
+- integrate with a gs provider & volume test
+- swap out broadcaster for redis streams or kafka for event streaming
+- persist timeseries data in postgres with BRIN index or a specialised db (e.g. Timescale or Influx)
+- pin docker image version and convert to an unprivileged container, (running rootless)[https://docs.docker.com/engine/security/rootless/] (or use podman)
+- run behind a reverse proxy like nginx and deploy on app runnner or k8s
+- setup monitoring with an apm solution like datadog or sentry
+
+## To do:
+
+- structured logging
 - pytest
 - sense check typing everywhere
 - CI/ CD incl. tests and linting for flake8
-- Write up overview production deployment and enhancements
 - Frontend
 
-Overview
+## Local quick start
 
-- choice of image (https://pythonspeed.com/articles/base-image-python-docker-images/)
-- use of multistage build
-  - use venv to slim python
+Ensure docker is running & you have docker-compose, then:
 
-Productionise
-
-- Pin docker image version
-- Run behind a reverse proxy like nginx
-- Deploy on app runnner or k8s
-- Use secrets rather than env for database secrets
-- Monitoring
-
-Enhancements
-
-- Volume test
-- BRIN index or use a Timeseries db (e.g. Timescale)
-- Structured logging
-- Convert to an unprivileged container and run docker rootless (https://docs.docker.com/engine/security/rootless/) or use podman
+```sh
+docker compose up
+```

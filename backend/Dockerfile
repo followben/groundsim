@@ -18,7 +18,8 @@ ENV PYTHONUNBUFFERED 1
 COPY --from=build /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY main.py .
-COPY tracking.json .
+COPY main.py main.py
+COPY tracking.json tracking.json
+COPY api api
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
