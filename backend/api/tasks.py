@@ -3,13 +3,14 @@ from datetime import datetime
 
 import api.pubsub as pubsub
 from api.models import GSPoints, GSPointsIndexed
+from broadcaster import Broadcast
 
 latestpoints = GSPoints(__root__=[])
 _running: bool = False
 
 
-async def run_simulation(data: GSPointsIndexed, channel: str = pubsub.channel):
-    """Publishes groundstation telemetry points to the specified channel"""
+async def run_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.broadcast, channel: str = pubsub.channel):
+    """Publishes groundstation telemetry points to the specified broadcaster channel"""
     global _running, latestpoints
     if _running:
         return
@@ -23,7 +24,7 @@ async def run_simulation(data: GSPointsIndexed, channel: str = pubsub.channel):
             points = data[counter]
             for point in points:
                 point.timestamp = datetime.utcnow()
-                await pubsub.broadcast.publish(channel=channel, message=point.json())
+                await broadcast.publish(channel=channel, message=point.json())
             latestpoints = points
         await asyncio.sleep(1)
         counter += 1

@@ -5,6 +5,7 @@ line-length = 120
 profile = "black"
 
 [tool.pytest.ini_options]
+asyncio_mode = "auto"
 norecursedirs = [
   ".vscode",
   "venv",
