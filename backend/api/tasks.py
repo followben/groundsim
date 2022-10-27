@@ -1,22 +1,19 @@
 import asyncio
-import json
 from datetime import datetime
 
-from api.models import GSPoints, Simulation
-from api.pubsub import broadcast
+import api.pubsub as pubsub
+from api.models import GSPoints, GSPointsIndexed
 
 latestpoints = GSPoints(__root__=[])
-running: bool = False
+_running: bool = False
 
 
-async def simulation():
-    global running, latestpoints
-    if running:
+async def run_simulation(data: GSPointsIndexed, channel: str = pubsub.channel):
+    """Publishes groundstation telemetry points to the specified channel"""
+    global _running, latestpoints
+    if _running:
         return
-    running = True
-
-    with open("tracking.json", "r") as f:
-        data = Simulation.parse_obj(json.load(f))
+    _running = True
 
     counter = 0
     emit_at = data.keys()
@@ -26,7 +23,9 @@ async def simulation():
             points = data[counter]
             for point in points:
                 point.timestamp = datetime.utcnow()
-                await broadcast.publish(channel="points", message=point.json())
+                await pubsub.broadcast.publish(channel=channel, message=point.json())
             latestpoints = points
         await asyncio.sleep(1)
         counter += 1
+
+    _running = False

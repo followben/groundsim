@@ -1,5 +1,7 @@
+import json
+
 import api.tasks as tasks
-from api.models import GSPoints
+from api.models import GSPoints, GSPointsIndexed
 from api.pubsub import broadcast
 from api.routers import graphql_router
 from fastapi import BackgroundTasks, FastAPI, Response, status
@@ -14,13 +16,11 @@ def create_app() -> FastAPI:
     async def get_latestpoints():
         return tasks.latestpoints
 
-    @app.post(
-        "/simulation",
-        status_code=status.HTTP_204_NO_CONTENT,
-        response_class=Response,
-    )
+    @app.post("/simulation", status_code=status.HTTP_204_NO_CONTENT, response_class=Response)
     async def create_simulation(background_tasks: BackgroundTasks):
-        background_tasks.add_task(tasks.simulation)
+        with open("tracking.json", "r") as f:
+            data = GSPointsIndexed.parse_obj(json.load(f))
+        background_tasks.add_task(tasks.run_simulation, data)
 
     @app.on_event("startup")
     async def startup():

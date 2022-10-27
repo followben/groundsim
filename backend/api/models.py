@@ -6,18 +6,24 @@ from pydantic import BaseModel
 
 
 class GSPointType(str, Enum):
+    """Groundstation telemetry types"""
+
     az = "az"
     el = "el"
     power = "power"
 
 
 class GSPoint(BaseModel):
+    """A groundstation telemetry point"""
+
     type: GSPointType
     timestamp: Optional[datetime]
     value: float
 
 
 class GSPoints(BaseModel):
+    """A list of groundstation telemetry points"""
+
     __root__: list[GSPoint]
 
     def __iter__(self):
@@ -27,7 +33,9 @@ class GSPoints(BaseModel):
         return self.__root__[item]
 
 
-class Simulation(BaseModel):
+class GSPointsIndexed(BaseModel):
+    """Dict-like structure with lists of groundstation telemetry points keyed by the emit time in seconds"""
+
     __root__: Mapping[int, GSPoints]
 
     def __iter__(self):
