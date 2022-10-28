@@ -32,6 +32,9 @@ class GSPoints(BaseModel):
     def __getitem__(self, item):
         return self.__root__[item]
 
+    def __len__(self):
+        return len(self.__root__)
+
 
 class GSPointsIndexed(BaseModel):
     """Dict-like structure with lists of groundstation telemetry points keyed by the emit time in seconds"""

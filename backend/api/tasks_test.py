@@ -9,6 +9,11 @@ from broadcaster import Broadcast
 
 
 @pytest.fixture
+def channel(request: pytest.FixtureRequest):
+    yield request.node.name
+
+
+@pytest.fixture
 def data():
     yield GSPointsIndexed.parse_obj({"0": [{"type": "el", "value": 5.0}]})
 
@@ -21,9 +26,8 @@ def utcnow():
         yield utcnow
 
 
-async def test_broadcast_message(data: GSPointsIndexed, utcnow: datetime.datetime):
+async def test_run_simultation_broadcasts_data(data: GSPointsIndexed, channel: str, utcnow: datetime.datetime):
     async with Broadcast("memory://") as broadcast:
-        channel = "test"
         async with broadcast.subscribe(channel) as subscriber:
             await run_simulation(data, broadcast, channel)
             event = await subscriber.get()  # type: ignore
