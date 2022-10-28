@@ -38,9 +38,37 @@ Ensure docker-compose is available and docker is running, then:
 # Build and run tests
 docker build --target test -t test-api . && docker run -it test-api
 
-# Run the application (uses default docker-compose.yml)
-docker compose up
+# Run the api (uses default docker-compose.yml)
+docker-compose up --build --force-recreate
 
-# Debug the application (run then select python:attach from the vscode debug window)
-docker compose up -f docker-compose-debug.yml
+# Debug the api (run then select python:attach from the vscode debug window)
+docker-compose up --build --force-recreate -f docker-compose-debug.yml
+```
+
+Once the api is running, start the groundsim by POSTing the endpoint:
+
+```sh
+http POST http://localhost:8080/simulation
+```
+
+Open http://localhost:8080/graphql in a browser, then:
+
+```graphql
+# fetch the latest telemetry points in a single query
+{
+  latestpoints {
+    type
+    timestamp
+    value
+  }
+}
+
+# subscribe to the stream of points
+subscription {
+  points {
+    type
+    timestamp
+    value
+  }
+}
 ```

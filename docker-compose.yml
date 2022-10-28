@@ -6,7 +6,7 @@ services:
       context: .
       target: production
     ports:
-      - 8080:8080
+      - 8080:80
     volumes:
       - ./backend:/app
     command: ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 80 --reload  --reload-dir /app"]
