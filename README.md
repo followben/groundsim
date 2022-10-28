@@ -57,7 +57,7 @@ Open http://localhost:8080/graphql in a browser, then:
 
 ```graphql
 # fetch the latest telemetry points in a single query
-{
+query {
   latestpoints {
     type
     timestamp
