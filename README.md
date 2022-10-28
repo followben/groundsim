@@ -10,10 +10,11 @@ It's really a demo designed to showcase:
 - docker for local development and cloud deployment
 - typing via pylance, formatting via black and linting via flake8
 - [choice of base image](https://pythonspeed.com/articles/base-image-python-docker-images/) and use of multistage build and venv to slim python
-- (to come) structured logging, unit and integration testing
+- unit and integration testing
 
 If this were real I'd:
 
+- add structured logging
 - integrate with a gs provider & volume test
 - provide cursor-based subscription so clients can better deal with backpressure
 - swap out broadcaster & global var for for an event stream such as redis streams or kafka
@@ -25,12 +26,9 @@ If this were real I'd:
 
 ## To do:
 
-- test queries
-- add structured logging
-- better docs
+- CI incl. running tests and linter
+- CD to fly.io
 - frontend
-- deploy on fly.io
-- CI/ CD incl. running tests and linter
 
 ## Local quick start
 
