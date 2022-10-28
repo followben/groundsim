@@ -15,10 +15,12 @@ It's really a demo designed to showcase:
 If this were real I'd:
 
 - integrate with a gs provider & volume test
+- provide cursor-based subscription so clients can better deal with backpressure
 - swap out broadcaster & global var for for an event stream such as redis streams or kafka
 - persist timeseries data in postgres with BRIN index or a specialised db (e.g. Timescale or Influx)
 - pin docker image version and convert to an unprivileged container, [running rootless](https://docs.docker.com/engine/security/rootless/) (or use podman)
 - run behind a reverse proxy like nginx and deploy on app runnner or k8s
+- protect with oauth bearer tokens or an api key
 - instrument the app via opentelemetry and monitor via prometheus/ grafana or elastic/ kibana
 
 ## To do:
