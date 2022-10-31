@@ -9,10 +9,16 @@ Simulate a stream of groundstation telemetry received during an overpass.
 Start a simulation run by POSTing the `simulation` endpoint (here using [httpie](https://httpie.io/cli)):
 
 ```sh
-http POST http://groundsim.fly.dev/simulation
+http POST https://groundsim.fly.dev/simulation
 ```
 
-Then issue graphql queries via a client library or via the browser at http://groundsim.fly.dev/graphql:
+Then GET the latest telemetry points via:
+
+```sh
+http GET https://groundsim.fly.dev/latestpoints
+```
+
+Alternatively, issue the following via graphql (a browser client is available at https://groundsim.fly.dev/graphql):
 
 ```graphql
 # fetch the latest telemetry points in a single query
@@ -59,6 +65,8 @@ If this were real I'd:
 
 ## To do:
 
+- return 201 on issuing new simulation, 409 when already running
+- graphql mutation endpoint creating the simulation
 - frontend
 - lose the second compose file for vscode
 
