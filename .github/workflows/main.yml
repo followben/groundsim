@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Groundsim CI/ CD
 
 on:
   push:
