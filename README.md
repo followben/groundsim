@@ -1,6 +1,6 @@
 # groundsim
 
-## Overview
+![Build & Test](https://github.com/followben/github/actions/workflows/main.yml/badge.svg)
 
 Simulates a stream of groundstation telemetry which might typically be received during an overpass.
 
@@ -36,7 +36,7 @@ Ensure docker-compose is available and docker is running, then:
 
 ```sh
 # Build and run tests
-docker build --target test -t test-api . && docker run -it test-api
+docker build --target test -t test-api . && docker run test-api
 
 # Run the api (uses default docker-compose.yml)
 docker-compose up --build --force-recreate
