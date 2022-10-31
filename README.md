@@ -10,11 +10,12 @@ It's really a demo designed to showcase:
 - docker for local development and cloud deployment
 - typing via pylance, formatting via black and linting via flake8
 - [choice of base image](https://pythonspeed.com/articles/base-image-python-docker-images/) and use of multistage build and venv to slim python
-- unit and integration testing
+- unit and integration testing via pytest
+- CI via Github Actions
 
 If this were real I'd:
 
-- add structured logging
+- linting/ static analysis during CI
 - integrate with a gs provider & volume test
 - provide cursor-based subscription so clients can better deal with backpressure
 - swap out broadcaster & global var for for an event stream such as redis streams or kafka
@@ -22,11 +23,10 @@ If this were real I'd:
 - pin docker image version and convert to an unprivileged container, [running rootless](https://docs.docker.com/engine/security/rootless/) (or use podman)
 - run behind a reverse proxy like nginx and deploy on app runnner or k8s
 - protect with oauth bearer tokens or an api key
-- instrument the app via opentelemetry and monitor via prometheus/ grafana or elastic/ kibana
+- instrument via opentelemetry and add structured logging; then monitor via prometheus/ grafana or elastic/ kibana
 
 ## To do:
 
-- CI incl. running tests and linter
 - CD to fly.io
 - frontend
 
