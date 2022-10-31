@@ -31,6 +31,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
+        target: test
         load: true
         tags: ${{ env.TEST_TAG }}
         cache-from: type=gha
