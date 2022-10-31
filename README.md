@@ -1,6 +1,6 @@
 # groundsim
 
-![Build & Test](https://github.com/followben/github/actions/workflows/main.yml/badge.svg?event=push)
+![Build & Test](https://github.com/followben/groundsim/actions/workflows/main.yml/badge.svg)
 
 Simulates a stream of groundstation telemetry which might typically be received during an overpass.
 
