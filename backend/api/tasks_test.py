@@ -4,7 +4,7 @@ from unittest.mock import patch
 
 import pytest
 from api.models import GSPointsIndexed
-from api.tasks import run_simulation
+from api.tasks import new_simulation
 from broadcaster import Broadcast
 
 
@@ -29,7 +29,7 @@ def utcnow():
 async def test_run_simultation_broadcasts_data(data: GSPointsIndexed, channel: str, utcnow: datetime.datetime):
     async with Broadcast("memory://") as broadcast:
         async with broadcast.subscribe(channel) as subscriber:
-            await run_simulation(data, broadcast, channel)
+            await new_simulation(data, broadcast, channel)
             event = await subscriber.get()  # type: ignore
             result = json.loads(event.message)
             assert result["type"] == "el"

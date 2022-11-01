@@ -65,10 +65,10 @@ If this were real I'd:
 
 ## To do:
 
-- return 201 on issuing new simulation, 409 when already running
 - graphql mutation endpoint creating the simulation
 - frontend
 - lose the second compose file for vscode
+- api testing for subscriptions and mutations
 
 ## Local development
 
@@ -79,8 +79,8 @@ Ensure docker-compose is available and docker is running, then:
 docker build --target test -t test-api . && docker run test-api
 
 # Mount the api at localhost:8080 (uses default docker-compose.yml)
-docker-compose up --build --force-recreate
+docker compose up --build --force-recreate
 
 # Debug the api via localhost:8080 (run then select python:attach from the vscode debug window)
-docker-compose up --build --force-recreate -f docker-compose-debug.yml
+docker compose up --build --force-recreate -f docker-compose-debug.yml
 ```

@@ -1,11 +1,13 @@
+import json
 from typing import AsyncGenerator, AsyncIterable, cast
 
 import api.pubsub as pubsub
 import api.tasks as tasks
 import strawberry
 from api.graphql.types import GQLPoint
-from api.models import GSPoint
+from api.models import GSPoint, GSPointsIndexed
 from broadcaster import Event
+from strawberry.types import Info
 
 
 def get_latest() -> list[GQLPoint]:
@@ -27,4 +29,16 @@ class Subscription:
                 yield GQLPoint.from_pydantic(point)
 
 
-schema = strawberry.Schema(query=Query, subscription=Subscription)
+@strawberry.type
+class Mutation:
+    @strawberry.mutation
+    def create_simulation(self, info: Info) -> bool:
+        if tasks.running:
+            return False
+        with open("tracking.json", "r") as f:
+            data = GSPointsIndexed.parse_obj(json.load(f))
+        info.context["background_tasks"].add_task(tasks.new_simulation, data)
+        return True
+
+
+schema = strawberry.Schema(query=Query, subscription=Subscription, mutation=Mutation)

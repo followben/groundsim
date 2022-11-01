@@ -6,15 +6,15 @@ from api.models import GSPoints, GSPointsIndexed
 from broadcaster import Broadcast
 
 latestpoints = GSPoints(__root__=[])
-_running: bool = False
+running: bool = False
 
 
-async def run_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.broadcast, channel: str = pubsub.channel):
+async def new_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.broadcast, channel: str = pubsub.channel):
     """Publishes groundstation telemetry points to the specified broadcaster channel"""
-    global _running, latestpoints
-    if _running:
+    global running, latestpoints
+    if running:
         return
-    _running = True
+    running = True
 
     counter = 0
     emit_at = data.keys()
@@ -29,4 +29,4 @@ async def run_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.br
         await asyncio.sleep(1)
         counter += 1
 
-    _running = False
+    running = False

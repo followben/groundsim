@@ -9,5 +9,5 @@ services:
       - 8080:80
       - 5678:5678
     volumes:
-      - ./backend:/app
+      - ./backend/.:/app
     command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn main:app --host 0.0.0.0 --port 80 --reload  --reload-dir /app"]
