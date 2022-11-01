@@ -6,6 +6,7 @@ from api.pubsub import broadcast
 from api.routers import graphql_router
 from fastapi import BackgroundTasks, FastAPI, Response, status
 from fastapi.exceptions import HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 
 def create_app() -> FastAPI:
@@ -32,6 +33,17 @@ def create_app() -> FastAPI:
     @app.on_event("shutdown")
     async def shutdown():
         await broadcast.disconnect()
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[
+            "https://groundsim.fly.dev",
+            "http://localhost:5173",
+        ],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     return app
 
