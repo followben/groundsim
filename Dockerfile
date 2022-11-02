@@ -45,12 +45,18 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 
 
 
-FROM node:lts-alpine  AS webbuild
+FROM node:lts-alpine  AS webbase
 WORKDIR /app
 
 COPY ./frontend/. .
 
 RUN npm ci
+
+
+
+FROM webbase  AS webbuild
+WORKDIR /app
+
 RUN npm run build
 
 

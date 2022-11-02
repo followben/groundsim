@@ -10,7 +10,7 @@ const CREATE_SIMULATION_MUTATION = `mutation {
 }`
 
 const client = new GraphQLClient({
-  url: 'http://localhost:8080/graphql'
+  url: `${import.meta.env.VITE_API_HOST}/graphql`
 })
 
 function Dashboard() {
