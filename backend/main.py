@@ -37,7 +37,7 @@ def create_app() -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[
-            "https://groundsim.fly.dev",
+            "https://gs.fly.dev",
             "http://localhost:3000",
         ],
         allow_credentials=True,

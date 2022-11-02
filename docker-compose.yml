@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: .
-      target: apiproduction
+      target: api
     ports:
       - 8080:80
     volumes:

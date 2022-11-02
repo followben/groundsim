@@ -7,16 +7,16 @@ on:
     branches: [ "main" ]
 
 env:
-  TEST_TAG: followben/groundsim:test
-  LATEST_TAG: followben/groundsim:latest
+  TEST_TAG: test
+  LATEST_TAG: latest
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 jobs:
 
-  test:
+  test-api:
     runs-on: ubuntu-latest
     environment: dev
-    name: Test
+    name: Test api
     steps:
     - uses: actions/checkout@v3
     -
@@ -33,21 +33,21 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        target: test
+        target: apitest
         load: true
-        tags: ${{ env.TEST_TAG }}
+        tags: followben/gsapi:${{ env.TEST_TAG }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
     -
       name: Test
       run: |
-        docker run --rm ${{ env.TEST_TAG }}
+        docker run --rm followben/gsapi:${{ env.TEST_TAG }}
 
-  publish:
+  publish-api:
     if: github.ref_name == 'main'
-    needs: test
+    needs: test-api
     environment: dev
-    name: Publish
+    name: Publish api
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -65,25 +65,68 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: followben/groundsim
+          images: followben/gsapi
       -
         name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
-          target: production
+          target: api
           push: true
-          tags: ${{ env.LATEST_TAG }}
+          tags: followben/gsapi:${{ env.LATEST_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  deploy:
-      if: github.ref_name == 'main'
-      needs: publish
+  deploy-api:
+      needs: publish-api
       environment: dev
-      name: Deploy
+      name: Deploy api
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
         - uses: superfly/flyctl-actions/setup-flyctl@master
-        - run: flyctl deploy --remote-only
+        - run: flyctl deploy --config fly.api.toml --remote-only
+
+  publish-web:
+    if: github.ref_name == 'main'
+    needs: test-api
+    environment: dev
+    name: Publish web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - 
+        name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      -
+        name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: followben/gs
+      -
+        name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          target: web
+          push: true
+          tags: followben/gs:${{ env.LATEST_TAG }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-web:
+      needs: publish-web
+      environment: dev
+      name: Deploy web
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: superfly/flyctl-actions/setup-flyctl@master
+        - run: flyctl deploy --config fly.web.toml --remote-only

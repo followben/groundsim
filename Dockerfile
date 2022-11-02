@@ -28,10 +28,8 @@ CMD ["pytest", "-n", "auto"]
 
 
 
-FROM python:3.10-slim-buster as apiproduction
+FROM python:3.10-slim-buster as api
 WORKDIR /app
-
-EXPOSE 8080
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1  
@@ -40,6 +38,8 @@ COPY --from=apibase /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 COPY backend/. .
+
+EXPOSE 8080
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 
@@ -55,12 +55,12 @@ RUN npm run build
 
 
 
-FROM nginx:stable-alpine as webproduction
+FROM nginx:stable-alpine as web
 WORKDIR /app
 
 COPY --from=webbuild /app/dist /usr/share/nginx/html
 COPY ./frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
