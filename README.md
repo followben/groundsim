@@ -6,7 +6,7 @@ Simulate a stream of groundstation telemetry received during an overpass.
 
 ## Quick start
 
-Issue the following via an appropriate client or https://groundsim.fly.dev/graphql:
+Issue the following via an appropriate client or https://gsapi.fly.dev/graphql:
 
 ```graphql
 # subscribe to the stream of points
@@ -33,17 +33,19 @@ query {
 }
 ```
 
-Alternatively POST to run the create the simulation (here using [httpie](https://httpie.io/cli)):
+Alternatively, either POST to create the simulation (here using [httpie](https://httpie.io/cli)):
 
 ```sh
-http POST https://groundsim.fly.dev/simulation
+http POST https://gsapi.fly.dev/simulation
 ```
 
 Then GET the latest telemetry points via:
 
 ```sh
-http GET https://groundsim.fly.dev/latestpoints
+http GET https://gsapi.fly.dev/latestpoints
 ```
+
+Or, nagivate to https://gs.fly.dev and press the button to start the sim (thereafter using the REST or graphql api to observe the data).
 
 ## What is this?
 
@@ -71,7 +73,7 @@ If this were real I'd:
 ## To do:
 
 - graphql subscription for simulation state
-- frontend
+- data vis in the frontend
 - lose the second compose file for vscode
 - api testing for subscriptions and mutations
 
