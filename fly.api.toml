@@ -1,12 +1,12 @@
-# fly.toml file generated for groundsim on 2022-10-31T15:54:07+10:00
+# fly.toml file generated for gsapi on 2022-10-31T15:54:07+10:00
 
-app = "groundsim"
+app = "gsapi"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [build]
-image = "followben/groundsim:latest"
+image = "followben/gsapi:latest"
 
 [env]
 

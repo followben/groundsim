@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# node
+node_modules/
+
 # C extensions
 *.so
 
@@ -31,3 +34,7 @@ MANIFEST
 .venv
 env/
 venv/
+
+# misc
+.DS_Store
+npm-debug.log

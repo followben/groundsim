@@ -6,7 +6,34 @@ Simulate a stream of groundstation telemetry received during an overpass.
 
 ## Quick start
 
-Start a simulation run by POSTing the `simulation` endpoint (here using [httpie](https://httpie.io/cli)):
+Issue the following via an appropriate client or https://groundsim.fly.dev/graphql:
+
+```graphql
+# subscribe to the stream of points
+subscription {
+  points {
+    type
+    timestamp
+    value
+  }
+}
+
+# run simulation
+mutation {
+  createSimulation
+}
+
+# fetch the latest telemetry points in a single query
+query {
+  latestpoints {
+    type
+    timestamp
+    value
+  }
+}
+```
+
+Alternatively POST to run the create the simulation (here using [httpie](https://httpie.io/cli)):
 
 ```sh
 http POST https://groundsim.fly.dev/simulation
@@ -16,28 +43,6 @@ Then GET the latest telemetry points via:
 
 ```sh
 http GET https://groundsim.fly.dev/latestpoints
-```
-
-Alternatively, issue the following via graphql (a browser client is available at https://groundsim.fly.dev/graphql):
-
-```graphql
-# fetch the latest telemetry points in a single query
-query {
-  latestpoints {
-    type
-    timestamp
-    value
-  }
-}
-
-# subscribe to the stream of points
-subscription {
-  points {
-    type
-    timestamp
-    value
-  }
-}
 ```
 
 ## What is this?
@@ -65,7 +70,7 @@ If this were real I'd:
 
 ## To do:
 
-- graphql mutation endpoint creating the simulation
+- graphql subscription for simulation state
 - frontend
 - lose the second compose file for vscode
 - api testing for subscriptions and mutations
@@ -78,7 +83,7 @@ Ensure docker-compose is available and docker is running, then:
 # Build and run tests
 docker build --target test -t test-api . && docker run test-api
 
-# Mount the api at localhost:8080 (uses default docker-compose.yml)
+# Run the api on localhost:8080 and the frontend on localhost:3000
 docker compose up --build --force-recreate
 
 # Debug the api via localhost:8080 (run then select python:attach from the vscode debug window)

@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: .
-      target: production
+      target: api
     ports:
       - 8080:80
       - 5678:5678
