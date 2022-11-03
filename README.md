@@ -6,7 +6,9 @@ Simulate a stream of groundstation telemetry received during an overpass.
 
 ## Quick start
 
-Issue the following via an appropriate client or https://gsapi.fly.dev/graphql:
+Open https://gs.fly.dev and press the button!
+
+Or directly query the api with graphql or via https://gsapi.fly.dev/graphql:
 
 ```graphql
 # subscribe to the stream of points
@@ -33,19 +35,15 @@ query {
 }
 ```
 
-Alternatively, either POST to create the simulation (here using [httpie](https://httpie.io/cli)):
+Alternatively, use the REST api (here via [httpie](https://httpie.io/cli)):
 
 ```sh
+# GET the latest telemetry points
+http GET https://gsapi.fly.dev/latestpoints
+
+# or POST to create the simulation
 http POST https://gsapi.fly.dev/simulation
 ```
-
-Then GET the latest telemetry points via:
-
-```sh
-http GET https://gsapi.fly.dev/latestpoints
-```
-
-Or, nagivate to https://gs.fly.dev and press the button to start the sim (thereafter using the REST or graphql api to observe the data).
 
 ## What is this?
 

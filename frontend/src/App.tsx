@@ -9,7 +9,7 @@ const client = new GraphQLClient({
   url: `${import.meta.env.VITE_API_SCHEME}://${import.meta.env.VITE_API_HOST}/graphql`,
   subscriptionClient: () =>
     createClient({
-      url: `ws://${import.meta.env.VITE_API_HOST}/graphql`,
+      url: `${import.meta.env.VITE_WS_SCHEME}://${import.meta.env.VITE_API_HOST}/graphql`,
     }),
 });
 
