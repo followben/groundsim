@@ -22,15 +22,14 @@ const xTicks = (startDate: Date = new Date()) => {
   return result;
 };
 
-const yTicks = () => range(0, 45, 5);
-
-interface Elevation {
+interface Telemetry {
   date: Date;
   value: number;
 }
 
 export default function ElevationChart() {
-  const [elevations, setElevations] = useState<Elevation[]>([]);
+  const [elevations, setElevations] = useState<Telemetry[]>([]);
+  const [azimuths, setAzimuths] = useState<Telemetry[]>([]);
 
   useSubscription({ query: POINTS_SUBSCRIPTION }, ({ data, errors }) => {
     if (errors && errors.length > 0) {
@@ -45,11 +44,17 @@ export default function ElevationChart() {
       setElevations((prev) => [...prev, { date: new Date(timestamp), value }]);
       // eslint-disable-next-line no-console
       console.log(elevations);
+    } else if (type === "az") {
+      setAzimuths((prev) => [...prev, { date: new Date(timestamp), value }]);
+      // eslint-disable-next-line no-console
+      console.log(azimuths);
     }
   });
 
+  // https://formidable.com/open-source/victory/gallery/multiple-dependent-axes/
+
   return (
-    <VictoryChart containerComponent={<VictoryZoomContainer />} theme={VictoryTheme.grayscale}>
+    <VictoryChart containerComponent={<VictoryZoomContainer />} theme={VictoryTheme.grayscale} domain={{ y: [0, 1] }}>
       <VictoryAxis
         style={{
           axis: { stroke: "#eee" },
@@ -61,22 +66,48 @@ export default function ElevationChart() {
         tickFormat={xTicks().map((t) => t.toLocaleTimeString([], { timeStyle: "short" }))}
       />
       <VictoryAxis
+        key="el"
         dependentAxis
         style={{
           axis: { stroke: "#eee" },
           tickLabels: { fill: "#eee" },
           axisLabel: { fill: "#eee", padding: 35 },
         }}
-        label="Elevation (m)"
-        tickValues={yTicks()}
+        label="Elevation"
+        tickValues={[0.111, 0.222, 0.333, 0.444, 0.555, 0.666, 0.777, 0.888, 0.999]}
+        tickFormat={[5, 10, 15, 20, 25, 30, 35, 40, 45]}
       />
       <VictoryLine
+        key="el"
         style={{
           data: { stroke: "#eee" },
         }}
         data={elevations}
         x="date"
-        y="value"
+        y={(el) => el.value / 45}
+      />
+      <VictoryAxis
+        key="az"
+        dependentAxis
+        orientation="right"
+        offsetX={50}
+        style={{
+          axis: { stroke: "orange" },
+          tickLabels: { fill: "orange" },
+          axisLabel: { fill: "orange", padding: 35 },
+        }}
+        label="Azimuth"
+        tickValues={[0.25, 0.5, 0.75, 1]}
+        tickFormat={(t) => t * 360}
+      />
+      <VictoryLine
+        key="az"
+        style={{
+          data: { stroke: "orange" },
+        }}
+        data={azimuths}
+        x="date"
+        y={(az) => az.value / 360}
       />
     </VictoryChart>
   );
