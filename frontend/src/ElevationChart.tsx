@@ -12,6 +12,10 @@ const POINTS_SUBSCRIPTION = `
   }
 `;
 
+const STATUS_SUBSCRIPTION = `subscription {
+  running
+}`;
+
 const range = (start: number, stop: number, step: number) =>
   Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
 
@@ -31,6 +35,11 @@ export default function ElevationChart() {
   const [elevations, setElevations] = useState<Telemetry[]>([]);
   const [azimuths, setAzimuths] = useState<Telemetry[]>([]);
 
+  function reset() {
+    setElevations([]);
+    setAzimuths([]);
+  }
+
   useSubscription({ query: POINTS_SUBSCRIPTION }, ({ data, errors }) => {
     if (errors && errors.length > 0) {
       // eslint-disable-next-line no-console
@@ -48,6 +57,17 @@ export default function ElevationChart() {
       setAzimuths((prev) => [...prev, { date: new Date(timestamp), value }]);
       // eslint-disable-next-line no-console
       console.log(azimuths);
+    }
+  });
+
+  useSubscription({ query: STATUS_SUBSCRIPTION }, ({ data, errors }) => {
+    if (errors && errors.length > 0) {
+      // eslint-disable-next-line no-console
+      console.error(errors[0]);
+      return;
+    }
+    if (data.running) {
+      reset();
     }
   });
 

@@ -80,8 +80,8 @@ If this were real I'd:
 Ensure docker-compose is available and docker is running, then:
 
 ```sh
-# Build and run tests
-docker build --target test -t test-api . && docker run test-api
+# Build and run backend tests
+docker build --target apitest -t test-api . && docker run test-api
 
 # Run the api on localhost:8080 and the frontend on localhost:3000
 docker compose up --build --force-recreate

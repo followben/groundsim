@@ -6,4 +6,5 @@ BROADCAST_URL = os.environ.get("BROADCAST_URL", "memory://")
 
 broadcast = Broadcast(BROADCAST_URL)
 
-channel = "points"
+POINTS_CHANNEL = "points"
+STATUS_CHANNEL = "status"

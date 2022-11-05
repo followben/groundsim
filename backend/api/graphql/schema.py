@@ -23,10 +23,16 @@ class Query:
 class Subscription:
     @strawberry.subscription
     async def points(self) -> AsyncGenerator[GQLPoint, None]:
-        async with pubsub.broadcast.subscribe(channel=pubsub.channel) as subscriber:
+        async with pubsub.broadcast.subscribe(channel=pubsub.POINTS_CHANNEL) as subscriber:
             async for event in cast(AsyncIterable[Event], subscriber):
                 point = GSPoint.parse_raw(event.message)
                 yield GQLPoint.from_pydantic(point)
+
+    @strawberry.subscription
+    async def running(self) -> AsyncGenerator[bool, None]:
+        async with pubsub.broadcast.subscribe(channel=pubsub.STATUS_CHANNEL) as subscriber:
+            async for event in cast(AsyncIterable[Event], subscriber):
+                yield event.message
 
 
 @strawberry.type

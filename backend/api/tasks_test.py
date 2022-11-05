@@ -35,3 +35,15 @@ async def test_run_simultation_broadcasts_data(data: GSPointsIndexed, channel: s
             assert result["type"] == "el"
             assert result["value"] == 5.0
             assert result["timestamp"] == utcnow.isoformat()
+
+
+async def test_run_simultation_broadcasts_running_status(
+    data: GSPointsIndexed, channel: str, utcnow: datetime.datetime
+):
+    async with Broadcast("memory://") as broadcast:
+        async with broadcast.subscribe(channel) as subscriber:
+            await new_simulation(data, broadcast, "test", channel)
+            event = await subscriber.get()  # type: ignore
+            assert event.message is True
+            event = await subscriber.get()  # type: ignore
+            assert event.message is False

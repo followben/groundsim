@@ -9,12 +9,30 @@ latestpoints = GSPoints(__root__=[])
 running: bool = False
 
 
-async def new_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.broadcast, channel: str = pubsub.channel):
+async def _update_running(
+    updated: bool,
+    broadcast: Broadcast = pubsub.broadcast,
+    status_channel: str = pubsub.STATUS_CHANNEL,
+):
+    global running
+    if running == updated:
+        return
+    running = updated
+    await broadcast.publish(channel=status_channel, message=running)
+
+
+async def new_simulation(
+    data: GSPointsIndexed,
+    broadcast: Broadcast = pubsub.broadcast,
+    points_channel: str = pubsub.POINTS_CHANNEL,
+    status_channel: str = pubsub.STATUS_CHANNEL,
+):
     """Publishes groundstation telemetry points to the specified broadcaster channel"""
     global running, latestpoints
     if running:
         return
-    running = True
+
+    await _update_running(True, broadcast, status_channel)
 
     counter = 0
     emit_at = data.keys()
@@ -24,9 +42,9 @@ async def new_simulation(data: GSPointsIndexed, broadcast: Broadcast = pubsub.br
             points = data[counter]
             for point in points:
                 point.timestamp = datetime.utcnow()
-                await broadcast.publish(channel=channel, message=point.json())
+                await broadcast.publish(channel=points_channel, message=point.json())
             latestpoints = points
         await asyncio.sleep(1)
         counter += 1
 
-    running = False
+    await _update_running(False, broadcast, status_channel)
